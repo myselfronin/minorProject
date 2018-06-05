@@ -1,0 +1,30 @@
+.loadingbck{
+    -fx-background-image: url("/images/whiteBook.jpg");
+    -fx-background-size: 100% 100%;
+    -fx-background-repeat: no-repeat;
+}
+
+.shopastbck{
+    -fx-background-image: url("/images/supermarketCOVER.jpg");
+    -fx-background-size: 100% 100%;
+    -fx-background-repeat: no-repeat;  
+}
+.loginbtn{
+    -fx-background-image: url("/images/loginicon.png");
+    -fx-background-size: 100% 100%;
+}
+
+.managerloginbtn{
+    -fx-background-image: url("/images/key.png");
+    -fx-background-size: 100% 100%;
+}
+
+.cashierLoginbtn{
+    -fx-background-image: url("/images/cashiericon.png");
+    -fx-background-size: 100% 100%;
+}
+
+.deoLoginbtn{
+    -fx-background-image: url("/images/deo.png");
+    -fx-background-size: 100% 100%;
+}

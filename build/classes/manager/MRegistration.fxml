@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.MRegistrationController">
+    <children>
+      <Pane fx:id="ProfilePane" layoutY="74.0" prefHeight="559.0" prefWidth="1183.0" style="-fx-background-color: #ececec;" />
+      <Pane fx:id="RegPane" layoutX="3.0" layoutY="75.0" prefHeight="559.0" prefWidth="1183.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="75.0">
+         <children>
+              <AnchorPane layoutX="65.0" layoutY="38.0" prefHeight="325.0" prefWidth="465.0" style="-fx-border-color: #19B5FE;">
+                  <children>
+                      <Label layoutX="12.0" layoutY="11.0" text="Registration">
+                          <font>
+                              <Font size="24.0" />
+                          </font>
+                      </Label>
+                      <VBox layoutX="40.0" layoutY="64.0" prefHeight="248.0" prefWidth="456.0">
+                          <children>
+                              <HBox prefHeight="42.0" prefWidth="369.0" spacing="40.0">
+                                  <children>
+                                      <Label text="Name" />
+                                      <JFXTextField fx:id="nameTextField" focusColor="#19b5fe" labelFloat="true">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </JFXTextField>
+                                      <Label text="DOB" />
+                              <DatePicker fx:id="dobDatePicker" prefHeight="25.0" prefWidth="133.0" />
+                                  </children>
+                              </HBox>
+                              <HBox prefHeight="42.0" prefWidth="369.0" spacing="35.0">
+                                  <children>
+                                      <Label text="Username" />
+                                      <JFXTextField fx:id="usernameTextField" />
+                                  </children>
+                              </HBox>
+                              <HBox prefHeight="42.0" prefWidth="369.0" spacing="24.0">
+                                  <children>
+                                      <Label text="Password" />
+                                      <JFXPasswordField fx:id="passwordField" />
+                                  </children>
+                              </HBox>
+                              <HBox prefHeight="42.0" prefWidth="369.0" spacing="10.0">
+                                  <children>
+                                      <Label text="Contact No." />
+                                      <JFXTextField fx:id="contactNoTextField" />
+                                  </children>
+                              </HBox>
+                              <HBox prefHeight="42.0" prefWidth="369.0" spacing="30.0">
+                                  <children>
+                                      <Label text="Address" />
+                                      <JFXTextField fx:id="addressTextField" />
+                                  </children>
+                              </HBox>
+                              <HBox prefHeight="42.0" prefWidth="369.0" spacing="40.0">
+                                  <children>
+                                      <Pane prefHeight="42.0" prefWidth="226.0">
+                                 <children>
+                                    <Label fx:id="status" layoutX="11.0" layoutY="11.0" prefHeight="25.0" prefWidth="186.0" text="Label" textFill="#3acc1d">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                                      <JFXButton fx:id="registerButton" onAction="#button" prefHeight="40.0" prefWidth="93.0" ripplerFill="#1f3a93" text="Register" />
+                                  </children>
+                              </HBox>
+                          </children>
+                      </VBox>
+                  <Label layoutX="178.0" layoutY="20.0" text="Cashier">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  </children>
+              </AnchorPane>
+            <TableView layoutX="613.0" layoutY="35.0" prefHeight="465.0" prefWidth="547.0">
+              <columns>
+                <TableColumn prefWidth="41.0977783203125" text="S.No" />
+                <TableColumn prefWidth="150.9022216796875" text="Name" />
+                  <TableColumn prefWidth="116.43609619140625" text="Username" />
+                  <TableColumn prefWidth="116.43609619140625" text="Address" />
+                  <TableColumn prefWidth="116.43609619140625" text="Contact" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <MenuBar prefHeight="25.0" prefWidth="1185.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutX="-1.0" layoutY="25.0" prefHeight="49.0" prefWidth="207.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <HBox layoutX="-36.0" layoutY="-25.0" prefHeight="75.0" prefWidth="1185.0" spacing="10.0" style="-fx-background-color: #C5EFF7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton onAction="#RegistrationBtnPushed" prefHeight="49.0" prefWidth="61.0" text="Registration" />
+                  <JFXButton prefHeight="49.0" prefWidth="61.0" text="Profile" />
+                  <JFXButton prefHeight="49.0" prefWidth="61.0" />
+                  <JFXButton prefHeight="49.0" prefWidth="61.0" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="65.0" layoutY="113.0" prefHeight="325.0" prefWidth="465.0" style="-fx-border-color: #19B5FE;">
+         <children>
+            <Label layoutX="12.0" layoutY="11.0" text="Registration">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <VBox layoutX="40.0" layoutY="64.0" prefHeight="248.0" prefWidth="456.0">
+               <children>
+                  <HBox prefHeight="42.0" prefWidth="369.0" spacing="40.0">
+                     <children>
+                        <Label text="Name" />
+                        <JFXTextField focusColor="#19b5fe" labelFloat="true">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </JFXTextField>
+                        <Label text="DOB" />
+                        <DatePicker prefHeight="25.0" prefWidth="133.0" promptText="MM/DD/YYYY" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="369.0" spacing="35.0">
+                     <children>
+                        <Label text="Username" />
+                        <JFXTextField />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="369.0" spacing="24.0">
+                     <children>
+                        <Label text="Password" />
+                        <JFXPasswordField />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="369.0" spacing="10.0">
+                     <children>
+                        <Label text="Contact No." />
+                        <JFXTextField />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="369.0" spacing="30.0">
+                     <children>
+                        <Label text="Address" />
+                        <JFXTextField />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="369.0" spacing="40.0">
+                     <children>
+                        <Pane prefHeight="42.0" prefWidth="226.0">
+                           <children>
+                              <Label layoutX="11.0" layoutY="11.0" prefHeight="25.0" prefWidth="186.0" text="Label" textFill="#3acc1d">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <JFXButton prefHeight="40.0" prefWidth="93.0" ripplerFill="#1f3a93" text="Register" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label layoutX="178.0" layoutY="20.0" text="Data Entry Operator">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="619.0" layoutY="95.0" prefHeight="424.0" prefWidth="507.0" />
+      <AnchorPane fx:id="Registrationmenu" layoutX="1.0" layoutY="72.0" prefHeight="127.0" prefWidth="57.0" style="-fx-background-color: #ccc;">
+         <children>
+            <VBox layoutX="8.0" layoutY="-9.0" prefHeight="200.0" prefWidth="62.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton onAction="#cashierRegBtnPushed" prefHeight="80.0" prefWidth="57.0" />
+                  <JFXButton onAction="#deoRegBtnPushed" prefHeight="80.0" prefWidth="57.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

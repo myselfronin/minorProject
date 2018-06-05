@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="1025.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="DEO.DeoWindowController">
+   <children>
+      <AnchorPane layoutY="25.0" prefHeight="69.0" prefWidth="1025.0" style="-fx-background-color: #E4F1FE;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <HBox layoutY="1.0" prefHeight="102.0" prefWidth="1025.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton prefHeight="102.0" prefWidth="105.0" styleClass="addProductBckgnd" stylesheets="@deocss.css" text="Button" />
+                  <JFXButton prefHeight="102.0" prefWidth="105.0" />
+                  <JFXButton prefHeight="102.0" prefWidth="105.0" />
+                  <JFXButton prefHeight="102.0" prefWidth="105.0" />
+                  <JFXButton prefHeight="102.0" prefWidth="105.0" />
+                  <JFXButton prefHeight="102.0" prefWidth="105.0" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <MenuBar prefHeight="25.0" prefWidth="1025.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

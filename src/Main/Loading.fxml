@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id = "ap" prefHeight="400.0" prefWidth="650.0" styleClass="loadingbck" stylesheets="@cssfile.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="Main.LoadingController">
+   <children>
+      <AnchorPane layoutX="67.0" layoutY="28.0" opacity="0.73" prefHeight="344.0" prefWidth="516.0" style="-fx-background-color: #fff;">
+         <children>
+            <ImageView fitHeight="110.0" fitWidth="154.0" layoutX="190.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/comp-2.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="244.0" fitWidth="605.0" layoutX="66.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/titleicon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
