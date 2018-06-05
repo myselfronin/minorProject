@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #E4F1FE;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #E4F1FE;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cashier.CashierWindowController">
    <children>
       <AnchorPane layoutY="10.0" prefHeight="50.0" prefWidth="1030.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <effect>
@@ -22,10 +22,6 @@
             <HBox layoutY="-2.0" prefHeight="50.0" prefWidth="1024.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton prefHeight="50.0" prefWidth="57.0" text="Button" />
-                  <JFXButton prefHeight="50.0" prefWidth="57.0" />
-                  <JFXButton prefHeight="50.0" prefWidth="57.0" />
-                  <JFXButton prefHeight="50.0" prefWidth="57.0" />
-                  <JFXButton prefHeight="50.0" prefWidth="57.0" />
                   <JFXButton prefHeight="50.0" prefWidth="57.0" />
                </children>
             </HBox>

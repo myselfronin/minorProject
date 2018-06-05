@@ -151,7 +151,12 @@ public class HomeController implements Initializable {
             cashierUsernameTextField.setText("");
             cashierPasswordField.setText("");
             loginBtnPane.setVisible(false);
-            System.out.println("Success");
+             Parent root = FXMLLoader.load(getClass().getResource("/Cashier/CashierWindow.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
        }
        else{
            cashierStatus.setVisible(true);
@@ -169,7 +174,8 @@ public class HomeController implements Initializable {
     
     @FXML
     public void deoNxtButtonPushed() throws ClassNotFoundException, IOException, SQLException, NoSuchAlgorithmException {
-        try{
+         
+         try{
             DbConnection connect = new DbConnection();
             Con = connect.DbConnect();
             
@@ -177,8 +183,8 @@ public class HomeController implements Initializable {
                 
         PreStmt=Con.prepareStatement(sql);
        String user = deoUsernameTextField.getText();
-       Hashing hashing = new Hashing();
-       String pass = hashing.Hashing(deoPasswordField.getText());
+       Hashing HashBack = new Hashing();
+       String pass = HashBack.Hashing(deoPasswordField.getText());
         PreStmt.setString(1,user);
         PreStmt.setString(2,pass);
        
@@ -188,10 +194,15 @@ public class HomeController implements Initializable {
             deoUsernameTextField.setText("");
             deoPasswordField.setText("");
             loginBtnPane.setVisible(false);
-            System.out.println("Success");
+             Parent root = FXMLLoader.load(getClass().getResource("/DEO/DeoWindow.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
        }
        else{
-           cashierStatus.setVisible(true);
+           deoStatus.setVisible(true);
        }       
        
         }catch(SQLException ex)

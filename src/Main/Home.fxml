@@ -84,12 +84,12 @@
                   <Image url="@../images/usericon.png" />
                </image>
             </ImageView>
-            <JFXTextField focusColor="#19b5fe" layoutX="76.0" layoutY="218.0" prefHeight="25.0" prefWidth="188.0" promptText="Username">
+            <JFXTextField fx:id="deoUsernameTextField" focusColor="#19b5fe" layoutX="76.0" layoutY="218.0" prefHeight="25.0" prefWidth="188.0" promptText="Username">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField focusColor="#19b5fe" layoutX="69.0" layoutY="279.0" prefHeight="30.0" prefWidth="188.0" promptText="Password">
+            <JFXPasswordField fx:id="deoPasswordField" focusColor="#19b5fe" layoutX="69.0" layoutY="279.0" prefHeight="30.0" prefWidth="188.0" promptText="Password">
                <font>
                   <Font size="14.0" />
                </font>

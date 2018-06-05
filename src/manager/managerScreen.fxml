@@ -26,7 +26,7 @@
          <children>
             <AnchorPane fx:id="deoPane" layoutX="84.0" layoutY="21.0" prefHeight="504.0" prefWidth="1016.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TableView fx:id="deoTableView" layoutX="541.0" layoutY="33.0" prefHeight="429.0" prefWidth="440.0">
+                  <TableView fx:id="deoTableView" layoutX="541.0" layoutY="9.0" prefHeight="453.0" prefWidth="440.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="541.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="9.0">
                      <columns>
                         <TableColumn prefWidth="38.31640625" text="S.No" />
                         <TableColumn prefWidth="143.4429931640625" text="Name" />
@@ -101,7 +101,7 @@
                </children></AnchorPane>
             <AnchorPane fx:id="employeePane" layoutX="99.0" prefHeight="504.0" prefWidth="1016.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TableView fx:id="employeeTableView" layoutX="541.0" layoutY="33.0" prefHeight="429.0" prefWidth="440.0" AnchorPane.leftAnchor="541.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="33.0">
+                  <TableView fx:id="employeeTableView" layoutX="541.0" layoutY="9.0" prefHeight="453.0" prefWidth="440.0" AnchorPane.leftAnchor="541.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="9.0">
                      <columns>
                         <TableColumn prefWidth="38.31640625" text="S.No" />
                         <TableColumn prefWidth="143.4429931640625" text="Name" />
@@ -168,9 +168,9 @@
             </AnchorPane>
             <AnchorPane fx:id="cashierPane" layoutX="131.0" layoutY="24.0" prefHeight="504.0" prefWidth="969.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TableView fx:id="cashierTableView" layoutX="541.0" layoutY="33.0" prefHeight="429.0" prefWidth="440.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="541.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="33.0">
+                  <TableView fx:id="cashierTableView" layoutX="541.0" layoutY="9.0" prefHeight="453.0" prefWidth="440.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="541.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="9.0">
                     <columns>
-                      <TableColumn prefWidth="38.31640625" text="S.No" />
+                      <TableColumn prefWidth="38.31640625" text="Id" />
                       <TableColumn prefWidth="143.4429931640625" text="Name" />
                         <TableColumn prefWidth="73.34686279296875" text="Contact" />
                         <TableColumn prefWidth="78.49102783203125" text="Address" />
