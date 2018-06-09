@@ -6,6 +6,7 @@
 package Main;
 
 import Connectivity.DbConnection;
+import manager.ManagerScreenController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -86,7 +87,7 @@ public class HomeController implements Initializable {
     private Connection Con;
     private PreparedStatement PreStmt;
     private ResultSet Rs;
-    
+  
     //LOGIN MANAGER 
     @FXML
     public void managerNxtButtonPushed() throws ClassNotFoundException, IOException {
@@ -94,7 +95,7 @@ public class HomeController implements Initializable {
             DbConnection connect = new DbConnection();
             Con = connect.DbConnect();
             
-        String sql = "SELECT * FROM manager_login where Username = ? AND Password = ?;";
+        String sql = "SELECT * FROM manager_info where Username = ? AND Password = ?;";
                 
         PreStmt=Con.prepareStatement(sql);
        String user = managerUsernameTextField.getText();
@@ -110,10 +111,11 @@ public class HomeController implements Initializable {
             loginBtnPane.setVisible(false);
             //loginBtn.setDisable(true);
             Parent root = FXMLLoader.load(getClass().getResource("/manager/managerScreen.fxml"));
+            
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            //stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
             
        }
@@ -148,6 +150,7 @@ public class HomeController implements Initializable {
        ResultSet rs = PreStmt.executeQuery();
        if(rs.next()){
            loginExitBtnPushed();
+          
             cashierUsernameTextField.setText("");
             cashierPasswordField.setText("");
             loginBtnPane.setVisible(false);
@@ -155,7 +158,7 @@ public class HomeController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            //stage.initModality(Modality.APPLICATION_MODAL);
+            
             stage.show();
        }
        else{
@@ -231,7 +234,13 @@ public class HomeController implements Initializable {
     
     @FXML
     public void loginBtnPushed(){
-        loginBtnPane.setVisible(true);
+        
+        loginBtnPane.toFront();
+       
+    }
+      public void loginBtnPushed2(){
+        
+        loginBtnPane.toBack();
        
     }
    @FXML
@@ -251,10 +260,10 @@ public class HomeController implements Initializable {
         
             deoLoginPane.toFront();
     }
-    
+   
     public void initialize(URL url, ResourceBundle rb) {
-        loginBtnPane.setVisible(false);
         
+       
         managerStatus.setVisible(false);
         cashierStatus.setVisible(false);
         deoStatus.setVisible(false);

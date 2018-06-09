@@ -19,7 +19,7 @@ public class DbConnection {
     public Connection DbConnect () throws ClassNotFoundException, SQLException{
         try{
               Class.forName("com.mysql.jdbc.Driver");
-              myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Supermarket","myself.ronin","ragha0701");
+              myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/minorproject","myself.ronin","ragha0701");
         }catch(SQLException ex){
             System.out.println("Error: "+ex);
         }

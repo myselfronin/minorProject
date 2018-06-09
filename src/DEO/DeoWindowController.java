@@ -36,6 +36,9 @@ public class DeoWindowController implements Initializable {
 
     @FXML
     private ChoiceBox<?> addCategoryTextField;
+    
+    @FXML
+    private ChoiceBox<?> addSubCategoryTextField;
 
     @FXML
     private TextField addCostPriceTextField;
@@ -60,6 +63,9 @@ public class DeoWindowController implements Initializable {
 
     @FXML
     private Label updateCategoryLabel;
+    
+      @FXML
+    private Label updateSubCategoryLabel;
 
     @FXML
     private TextField updateCostPriceTextField;
@@ -75,6 +81,8 @@ public class DeoWindowController implements Initializable {
 
     @FXML
     private TextField updateQtyTextField;
+    
+  
     @FXML
     private AnchorPane ProductPane;
     @FXML
@@ -106,6 +114,17 @@ public class DeoWindowController implements Initializable {
     public void OtherBtnPushed()
     {
         OtherPane.toFront();
+    }
+    
+    @FXML
+    public void addProductBtnPushed(){
+        
+    }
+    
+    @FXML
+    public void updateProductBtnPushed()
+    {
+        
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

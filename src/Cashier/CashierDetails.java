@@ -13,65 +13,86 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Rabinson
  */
 public class CashierDetails {
-    private SimpleStringProperty s_No,name,username,address,contact_no,gender;
+    private SimpleStringProperty SNo,Name,Username,Address,ContactNo,Gender,CreatedBy,CreatedAt;
     private LocalDate dob;
 
-    public CashierDetails(String s_No, String name, String username, String address, String contact_no, String gender, LocalDate dob) {
-        this.s_No = new SimpleStringProperty(s_No);
-        this.name =  new SimpleStringProperty(name);
-        this.username =  new SimpleStringProperty(username);
-        this.address =  new SimpleStringProperty(address);
-        this.contact_no =  new SimpleStringProperty(contact_no);
-        this.gender =  new SimpleStringProperty(gender);
+    public CashierDetails(String SNo, String Name, String Username, 
+                          String Address, String ContactNo, String Gender,
+                          String CreatedBy,String CreatedAt ,LocalDate dob) 
+    {
+        this.SNo = new SimpleStringProperty(SNo);
+        this.Name =  new SimpleStringProperty(Name);
+        this.Username =  new SimpleStringProperty(Username);
+        this.Address =  new SimpleStringProperty(Address);
+        this.ContactNo =  new SimpleStringProperty(ContactNo);
+        this.Gender =  new SimpleStringProperty(Gender);
+        this.CreatedBy =  new SimpleStringProperty(CreatedBy);
+        this.CreatedAt =  new SimpleStringProperty(CreatedAt);
         this.dob = dob;
     }
 
-    public SimpleStringProperty getS_No() {
-        return s_No;
+    public String getSNo() {
+        return SNo.get();
     }
 
-    public void setS_No(SimpleStringProperty s_No) {
-        this.s_No = s_No;
+    public void setSNo(SimpleStringProperty SNo) {
+        this.SNo = SNo;
     }
 
-    public SimpleStringProperty getName() {
-        return name;
+    public String getName() {
+        return Name.get();
     }
 
-    public void setName(SimpleStringProperty name) {
-        this.name = name;
+    public void setName(SimpleStringProperty Name) {
+        this.Name = Name;
     }
 
-    public SimpleStringProperty getUsername() {
-        return username;
+    public String getUsername() {
+        return Username.get();
     }
 
-    public void setUsername(SimpleStringProperty username) {
-        this.username = username;
+    public void setUsername(SimpleStringProperty Username) {
+        this.Username = Username;
     }
 
-    public SimpleStringProperty getAddress() {
-        return address;
+    public String getAddress() {
+        return Address.get();
     }
 
-    public void setAddress(SimpleStringProperty address) {
-        this.address = address;
+    public void setAddress(SimpleStringProperty Address) {
+        this.Address = Address;
     }
 
-    public SimpleStringProperty getContact_no() {
-        return contact_no;
+    public String getContactNo() {
+        return ContactNo.get();
     }
 
-    public void setContact_no(SimpleStringProperty contact_no) {
-        this.contact_no = contact_no;
+    public void setContactNo(SimpleStringProperty ContactNo) {
+        this.ContactNo = ContactNo;
     }
 
-    public SimpleStringProperty getGender() {
-        return gender;
+    public String getGender() {
+        return Gender.get();
     }
 
-    public void setGender(SimpleStringProperty gender) {
-        this.gender = gender;
+    public void setGender(SimpleStringProperty Gender) {
+        this.Gender = Gender;
+    }
+
+    public String getCreatedBy() {
+        return CreatedBy.get();
+    }
+
+    public void setCreatedBy(SimpleStringProperty CreatedBy) {
+        this.CreatedBy = CreatedBy;
+    }
+
+    public String getCreatedAt() {
+        return CreatedAt.get();
+    }
+
+    public void setCreatedAt(SimpleStringProperty CreatedAt) {
+        this.CreatedAt = CreatedAt;
     }
 
     public LocalDate getDob() {

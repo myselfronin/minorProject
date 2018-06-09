@@ -18,7 +18,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DEO.DeoWindowController">
    <children>
-      <AnchorPane fx:id="OtherPane" layoutX="6.0" layoutY="97.0" prefHeight="511.0" prefWidth="1077.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
       <MenuBar prefHeight="25.0" prefWidth="1101.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
@@ -51,103 +50,17 @@
                </children>
             </Pane>
             <JFXButton layoutX="115.0" layoutY="-1.0" onAction="#ProductBtnPushed" prefHeight="71.0" prefWidth="75.0" text="Product" />
-            <JFXButton layoutX="218.0" layoutY="1.0" onAction="#OtherBtnPushed" prefHeight="67.0" prefWidth="68.0" text="Other" />
+            <JFXButton layoutX="218.0" layoutY="1.0" onAction="#OtherBtnPushed" prefHeight="67.0" prefWidth="68.0" text="Customer" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="ProductPane" layoutX="8.0" layoutY="96.0" prefHeight="502.0" prefWidth="1065.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0">
          <children>
-            <AnchorPane fx:id="AddPane" layoutX="84.0" layoutY="69.0" prefHeight="444.0" prefWidth="657.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label layoutX="59.0" layoutY="30.0" text="Add Items" />
-                  <AnchorPane layoutX="86.0" layoutY="99.0" prefHeight="375.0" prefWidth="403.0" style="-fx-background-color: #fff;">
-                     <children>
-                        <VBox layoutX="29.0" layoutY="13.0" prefHeight="268.0" prefWidth="313.0" spacing="20.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="13.0">
-                           <children>
-                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
-                                 <children>
-                                    <Label text="BarCode">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="addBarCodeTextField" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
-                                 <children>
-                                    <Label prefHeight="20.0" prefWidth="54.0" text="Code">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="addCodeTextField" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
-                                 <children>
-                                    <Label prefHeight="20.0" prefWidth="53.0" text="Name">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="addNameTextField" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
-                                 <children>
-                                    <Label prefHeight="20.0" prefWidth="58.0" text="Category">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <ChoiceBox fx:id="addCategoryTextField" prefWidth="150.0" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
-                                 <children>
-                                    <Label text="Cost Price">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="addCostPriceTextField" prefHeight="25.0" prefWidth="77.0" />
-                                    <Label text="MRP">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="addMRPTextField" prefHeight="25.0" prefWidth="54.0" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
-                                 <children>
-                                    <Label text="Qty">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="addQtyTextField" prefHeight="25.0" prefWidth="44.0" />
-                                    <Label text="Expire Date">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <DatePicker fx:id="addExpireDatePicker" prefHeight="25.0" prefWidth="105.0" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <JFXButton layoutX="289.0" layoutY="330.0" prefHeight="40.0" prefWidth="89.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
             <AnchorPane fx:id="UpdatePane" prefHeight="444.0" prefWidth="657.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="74.0" layoutY="30.0" text="Update Items" />
-                  <AnchorPane layoutX="103.0" layoutY="72.0" prefHeight="375.0" prefWidth="403.0" style="-fx-background-color: #fff;">
+                  <AnchorPane layoutX="103.0" layoutY="72.0" prefHeight="375.0" prefWidth="488.0" style="-fx-background-color: #fff;">
                      <children>
-                        <VBox layoutX="29.0" layoutY="13.0" prefHeight="268.0" prefWidth="313.0" spacing="20.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="13.0">
+                        <VBox layoutX="29.0" layoutY="13.0" prefHeight="316.0" prefWidth="420.0" spacing="20.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="13.0">
                            <children>
                               <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
                                  <children>
@@ -191,6 +104,16 @@
                                        </font>
                                     </Label>
                                     <Label fx:id="updateCategoryLabel" text="label">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Sub-Category">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="updateSubCategoryLabel" text="Label">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -249,7 +172,99 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <JFXButton layoutX="289.0" layoutY="330.0" prefHeight="40.0" prefWidth="89.0" />
+                        <JFXButton layoutX="360.0" layoutY="329.0" onAction="#updateProductBtnPushed" prefHeight="40.0" prefWidth="89.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="AddPane" layoutX="84.0" layoutY="69.0" prefHeight="444.0" prefWidth="657.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="59.0" layoutY="30.0" text="Add Items" />
+                  <AnchorPane layoutX="86.0" layoutY="99.0" prefHeight="375.0" prefWidth="559.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <VBox layoutX="29.0" layoutY="13.0" prefHeight="316.0" prefWidth="473.0" spacing="20.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="13.0">
+                           <children>
+                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
+                                 <children>
+                                    <Label text="BarCode">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addBarCodeTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="54.0" text="Code">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addCodeTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="53.0" text="Name">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addNameTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="71.0" text="Category">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="addCategoryTextField" prefWidth="150.0" />
+                                    <Label prefHeight="20.0" prefWidth="94.0" text="SubCategory">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="addSubCategoryTextField" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
+                                 <children>
+                                    <Label text="Cost Price">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addCostPriceTextField" prefHeight="25.0" prefWidth="77.0" />
+                                    <Label text="MRP">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addMRPTextField" prefHeight="25.0" prefWidth="54.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="30.0" prefWidth="247.0" spacing="20.0">
+                                 <children>
+                                    <Label text="Qty">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addQtyTextField" prefHeight="25.0" prefWidth="44.0" />
+                                    <Label text="Expire Date">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="addExpireDatePicker" prefHeight="25.0" prefWidth="105.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton layoutX="389.0" layoutY="329.0" onAction="#addProductBtnPushed" prefHeight="40.0" prefWidth="89.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -266,5 +281,18 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="OtherPane" layoutX="6.0" layoutY="97.0" prefHeight="511.0" prefWidth="1077.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <AnchorPane layoutX="12.0" layoutY="72.0" prefHeight="506.0" prefWidth="84.0" style="-fx-background-color: #C5EFF7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox layoutX="-1.0" layoutY="12.0" prefHeight="550.0" prefWidth="84.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <JFXButton onAction="#productSideMenuAddBtnPushed" prefHeight="65.0" prefWidth="85.0" text="Add" />
+                        <JFXButton onAction="#productSideMenuUpdateBtnPushed" prefHeight="65.0" prefWidth="85.0" text="Update" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
    </children>
 </AnchorPane>
