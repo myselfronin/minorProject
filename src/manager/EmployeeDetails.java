@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DEO;
+package manager;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -12,16 +13,16 @@ import javafx.beans.property.SimpleStringProperty;
  *
  * @author Rabinson
  */
-public class DEODetails {
-    private SimpleStringProperty SNo,Name,Username,Address,ContactNo,Gender,CreatedBy,CreatedAt;
-    private LocalDate dob;
-     public DEODetails(String SNo, String Name, String Username, 
+public class EmployeeDetails {
+    private SimpleStringProperty SNo,Name,Position,Address,ContactNo,Gender,CreatedBy,CreatedAt;
+    private Date dob;
+     public EmployeeDetails(String SNo, String Name,String Position, 
                           String Address, String ContactNo, String Gender,
-                          String CreatedBy,String CreatedAt ,LocalDate dob) 
+                          String CreatedBy,String CreatedAt ,Date dob) 
     {
         this.SNo = new SimpleStringProperty(SNo);
         this.Name =  new SimpleStringProperty(Name);
-        this.Username =  new SimpleStringProperty(Username);
+        this.Position =  new SimpleStringProperty(Position);
         this.Address =  new SimpleStringProperty(Address);
         this.ContactNo =  new SimpleStringProperty(ContactNo);
         this.Gender =  new SimpleStringProperty(Gender);
@@ -46,14 +47,14 @@ public class DEODetails {
         this.Name = Name;
     }
 
-    public String getUsername() {
-        return Username.get();
+    public String getPosition(){
+        return Position.get();
     }
-
-    public void setUsername(SimpleStringProperty Username) {
-        this.Username = Username;
+    
+    public void setPosition(SimpleStringProperty Position)
+    {
+        this.Position = Position;
     }
-
     public String getAddress() {
         return Address.get();
     }
@@ -94,11 +95,11 @@ public class DEODetails {
         this.CreatedAt = CreatedAt;
     }
 
-    public LocalDate getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 }

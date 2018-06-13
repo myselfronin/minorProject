@@ -138,7 +138,7 @@ public class HomeController implements Initializable {
             DbConnection connect = new DbConnection();
             Con = connect.DbConnect();
             
-        String sql = "SELECT * FROM cashier_login where Username = ? AND Password = ?;";
+        String sql = "SELECT * FROM cashier_info where Username = ? AND Password = ?;";
                 
         PreStmt=Con.prepareStatement(sql);
        String user = cashierUsernameTextField.getText();
@@ -182,7 +182,7 @@ public class HomeController implements Initializable {
             DbConnection connect = new DbConnection();
             Con = connect.DbConnect();
             
-        String sql = "SELECT * FROM deo_login where Username = ? AND Password = ?;";
+        String sql = "SELECT * FROM deo_info where Username = ? AND Password = ?;";
                 
         PreStmt=Con.prepareStatement(sql);
        String user = deoUsernameTextField.getText();
@@ -196,8 +196,8 @@ public class HomeController implements Initializable {
            loginExitBtnPushed();
             deoUsernameTextField.setText("");
             deoPasswordField.setText("");
-            loginBtnPane.setVisible(false);
-             Parent root = FXMLLoader.load(getClass().getResource("/DEO/DeoWindow.fxml"));
+            loginBtnPane.toBack();
+             Parent root = FXMLLoader.load(getClass().getResource("/DEO/Screen.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -229,7 +229,7 @@ public class HomeController implements Initializable {
     @FXML
     public void loginExitBtnPushed(){
         mainPane.toFront();
-        loginBtnPane.setVisible(false);
+        loginBtnPane.toBack();
     }
     
     @FXML
