@@ -9,7 +9,6 @@ import Cashier.CashierDetails;
 import DEO.DEODetails;
 import Main.Hashing;
 import Connectivity.DbConnection;
-import Main.HomeController;
 import com.jfoenix.controls.JFXButton;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -18,7 +17,6 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
-import java.awt.Font;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -30,15 +28,12 @@ import java.time.Month;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -47,7 +42,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -484,17 +478,21 @@ public class ManagerScreenController implements Initializable {
         qtyVbox.setStyle("-fx-background-color: white;");
         qtyVbox.setSpacing(10);
         
-         String sqll = "SELECT * FROM batch_table inner join product_table"
-                 + " on batch_table.product_Id = product_table.product_Id "
-                 + "where (batch_table.EntryQty - batch_table.SoldQty) <100 "
-                 + "and not batch_table.type = 'sold'";
+         String sqll = "select product_table.name, product_table.Department, product_table.Category,"
+                 + "product_table.SubCategory , (sum(EntryQty) - sum( SoldQty)) as remaining "
+                 + "from batch_table inner join product_table "
+                 + "on batch_table.product_Id = product_table.product_Id "
+                 + "where not type = 'sold'"
+                 + "group by batch_table.product_Id";
          PreStmt = Con.prepareStatement(sqll);
          Result = PreStmt.executeQuery();
          if(Result.next())
          {
          while(Result.next())
          {
-             Pane pane= new Pane();
+             if(Result.getInt("remaining")<100)
+             {
+               Pane pane= new Pane();
             pane.setPrefSize(400,100);
             pane.setStyle("-fx-background-color: rgb(253, 227, 167);");
             Label name = new Label();
@@ -510,15 +508,16 @@ public class ManagerScreenController implements Initializable {
             subcategory.setTranslateX(150);
             subcategory.setTranslateY(30);
              Label remaining = new Label();
-             int num = Result.getInt("entryqty")- Result.getInt("soldqty");
+             int num = Result.getInt("remaining");
             remaining.setText("STATUS\t" + num);
             remaining.setTranslateY(60);
             remaining.setTranslateX(150);
              pane.getChildren().addAll(name,department,category,subcategory,remaining);
              qtyVbox.getChildren().add(pane);
          }
-    }
-          else
+         }
+         }
+         else
         {     Pane pane= new Pane();
             pane.setPrefSize(400,100);
             pane.setStyle("-fx-background-color: rgb(162, 222, 208);");
@@ -527,10 +526,13 @@ public class ManagerScreenController implements Initializable {
             pane.getChildren().add(name);
             qtyVbox.getChildren().add(pane);
             
-        }
+        }  
+             
+             
          notifyQty.setContent(qtyVbox);
          
     }
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
