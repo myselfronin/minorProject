@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -21,20 +21,107 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.ManagerScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-border-color: #6ccccc; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.ManagerScreenController">
    <children>
-      <AnchorPane layoutX="1.0" layoutY="96.0" prefHeight="504.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="96.0">
+      <AnchorPane fx:id="logsAnchorPane" prefHeight="511.0" prefWidth="1090.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0">
          <children>
-            <AnchorPane fx:id="deoPane" layoutX="84.0" layoutY="21.0" prefHeight="504.0" prefWidth="1016.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="cashierLogPane" layoutX="94.0" prefHeight="517.0" prefWidth="983.0" style="-fx-background-color: #ececec; -fx-border-color: #6ccccc; -fx-border-width: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TableView fx:id="deoTableView" layoutX="541.0" layoutY="9.0" prefHeight="453.0" prefWidth="440.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="541.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="9.0">
-                     <columns>
-                        <TableColumn prefWidth="38.31640625" text="S.No" />
-                        <TableColumn prefWidth="143.4429931640625" text="Name" />
-                        <TableColumn prefWidth="73.34686279296875" text="Contact" />
-                        <TableColumn prefWidth="78.49102783203125" text="Address" />
-                     </columns>
-                  </TableView>
+                  <Label layoutX="49.0" layoutY="31.0" text="Cashier Logs">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="48.0" layoutY="75.0" prefHeight="40.0" prefWidth="242.0" spacing="20.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc;">
+                     <children>
+                        <Label text="Cashier">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="cashierLogsComboBox" onAction="#cashierComboAction" prefHeight="25.0" prefWidth="150.0" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="7.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fx:id="cashierScrollPane" layoutX="48.0" layoutY="129.0" prefHeight="362.0" prefWidth="917.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="124.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="deoLogPane" layoutX="97.0" layoutY="8.0" prefHeight="517.0" prefWidth="983.0" style="-fx-background-color: #ececec; -fx-border-color: #6ccccc; -fx-border-width: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="50.0" layoutY="33.0" text="DEO Logs">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="46.0" layoutY="75.0" prefHeight="40.0" prefWidth="242.0" spacing="20.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc;">
+                     <children>
+                        <Label text="DEO">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="deoLogsComboBox" onAction="#deoComboAction" prefHeight="25.0" prefWidth="175.0" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="7.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fx:id="deoScrollPane" layoutX="59.0" layoutY="127.0" prefHeight="338.0" prefWidth="897.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="124.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="-5.0" layoutY="8.0" prefHeight="445.0" prefWidth="95.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox layoutX="2.0" layoutY="13.0" prefHeight="522.0" prefWidth="95.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <JFXButton onAction="#CashierLogsSideBtnPushed" prefHeight="60.0" prefWidth="81.0" style="-fx-background-color: #6ccccc;" text="Cashier" />
+                        <JFXButton onAction="#DeoLogsSideBtnPushed" prefHeight="60.0" prefWidth="81.0" style="-fx-background-color: #6ccccc;" text="DEO" />
+                     </children>
+                     <padding>
+                        <Insets left="5.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="notificationAnchorPane" layoutX="4.0" layoutY="82.0" prefHeight="514.0" prefWidth="1087.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="72.0">
+         <children>
+            <AnchorPane layoutX="18.0" layoutY="10.0" prefHeight="485.0" prefWidth="525.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <Label layoutX="42.0" layoutY="17.0" text="ExpireDate Notifications">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane fx:id="notifyExpireDate" layoutX="20.0" layoutY="77.0" prefHeight="376.0" prefWidth="464.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="76.0">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding></ScrollPane>
+                  <JFXButton layoutX="478.0" layoutY="10.0" onAction="#managerExpireDateNotification" prefHeight="40.0" prefWidth="40.0" styleClass="managerRefreshBtn" stylesheets="@../Main/cssfile.css" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="574.0" layoutY="12.0" prefHeight="485.0" prefWidth="525.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc;" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0">
+               <children>
+                  <Label layoutX="42.0" layoutY="17.0" text="ExpireDate Notifications">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane fx:id="notifyQty" layoutX="20.0" layoutY="77.0" prefHeight="376.0" prefWidth="464.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="77.0">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding></ScrollPane>
+                  <JFXButton layoutX="478.0" layoutY="5.0" onAction="#managerQtyNotification" prefHeight="40.0" prefWidth="40.0" styleClass="managerRefreshBtn" stylesheets="@../Main/cssfile.css" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="employeeAnchorPane" layoutX="5.0" layoutY="83.0" prefHeight="511.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="73.0">
+         <children>
+            <AnchorPane fx:id="deoPane" layoutX="97.0" layoutY="8.0" prefHeight="517.0" prefWidth="983.0" style="-fx-background-color: #ececec; -fx-border-color: #6ccccc; -fx-border-width: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
                   <AnchorPane layoutX="20.0" layoutY="33.0" prefHeight="432.0" prefWidth="505.0" style="-fx-border-color: #19B5FE; -fx-background-color: #fff;">
                      <children>
                         <Label layoutX="12.0" layoutY="11.0" text="Registration">
@@ -99,17 +186,27 @@
                         </Label>
                      </children>
                   </AnchorPane>
-               </children></AnchorPane>
-            <AnchorPane fx:id="employeePane" layoutX="99.0" prefHeight="504.0" prefWidth="1016.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane layoutX="547.0" layoutY="35.0" prefHeight="432.0" prefWidth="455.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="35.0">
+                     <content>
+                        <TableView fx:id="deoTableView" prefHeight="510.0" prefWidth="829.0">
+                           <columns>
+                              <TableColumn fx:id="deoSNoColumn" prefWidth="31.0" text="S.No" />
+                              <TableColumn fx:id="deoNameColumn" prefWidth="148.666748046875" text="Name" />
+                              <TableColumn fx:id="deoUsernameColumn" prefWidth="91.0" text="Username" />
+                              <TableColumn fx:id="deoAddressColumn" prefWidth="95.0" text="Address" />
+                              <TableColumn fx:id="deoContactNoColumn" prefWidth="109.66668701171875" text="Contact" />
+                              <TableColumn fx:id="deoDOBColumn" prefWidth="85.33331298828125" text="DOB" />
+                              <TableColumn fx:id="deoGenderColumn" prefWidth="65.6666259765625" text="Gender" />
+                              <TableColumn fx:id="deoCreatedByColumn" text="Created_By" />
+                              <TableColumn fx:id="deoCreatedAtColumn" prefWidth="100.0" text="Created_At" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="employeePane" layoutX="97.0" prefHeight="520.0" prefWidth="0.0" style="-fx-background-color: #ececec; -fx-border-color: #6ccccc; -fx-border-width: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TableView fx:id="employeeTableView" layoutX="541.0" layoutY="9.0" prefHeight="453.0" prefWidth="440.0" AnchorPane.leftAnchor="541.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="9.0">
-                     <columns>
-                        <TableColumn prefWidth="38.31640625" text="S.No" />
-                        <TableColumn prefWidth="143.4429931640625" text="Name" />
-                        <TableColumn prefWidth="73.34686279296875" text="Contact" />
-                        <TableColumn prefWidth="78.49102783203125" text="Address" />
-                     </columns>
-                  </TableView>
                   <AnchorPane layoutX="20.0" layoutY="33.0" prefHeight="432.0" prefWidth="505.0" style="-fx-border-color: #19B5FE; -fx-background-color: #fff;">
                      <children>
                         <Label layoutX="12.0" layoutY="11.0" text="Registration">
@@ -121,33 +218,58 @@
                            <children>
                               <HBox prefHeight="42.0" prefWidth="369.0" spacing="30.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="47.0" text="Name" />
+                                    <Label prefHeight="17.0" prefWidth="47.0" text="Name">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
                                     <JFXTextField fx:id="employeeNameTextField" focusColor="#19b5fe" labelFloat="true">
                                        <effect>
                                           <DropShadow />
                                        </effect>
                                     </JFXTextField>
-                                    <Label prefHeight="17.0" prefWidth="42.0" text="DOB" />
+                                    <Label prefHeight="17.0" prefWidth="42.0" text="DOB">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
                                     <JFXDatePicker fx:id="employeeDobDatePicker" defaultColor="#19b5fe" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="42.0" prefWidth="369.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="64.0" text="Contact No." />
+                                    <Label prefHeight="17.0" prefWidth="64.0" text="Contact No.">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
                                     <JFXTextField fx:id="employeeContactNoTextField" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="42.0" prefWidth="369.0" spacing="30.0">
                                  <children>
-                                    <Label text="Address" />
+                                    <Label text="Address">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
                                     <JFXTextField fx:id="employeeAddressTextField" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="42.0" prefWidth="369.0" spacing="20.0">
                                  <children>
-                                    <Label text="Gender" />
+                                    <Label text="Gender">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
                                     <JFXRadioButton fx:id="employeeMaleRadioBtn" text="Male" />
                                     <JFXRadioButton fx:id="employeeFemaleRadioBtn" text="Female" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="42.0" prefWidth="369.0" spacing="20.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="70.0" text="Position">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="employeePositionChoiceBox" prefWidth="150.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -165,11 +287,28 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <ScrollPane layoutX="552.0" layoutY="31.0" prefHeight="428.0" prefWidth="449.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="552.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="31.0">
+                     <content>
+                        <TableView fx:id="employeeTableView" prefHeight="533.0" prefWidth="829.0">
+                           <columns>
+                              <TableColumn fx:id="employeeSNoColumn" prefWidth="31.0" text="S.No" />
+                              <TableColumn fx:id="employeeNameColumn" prefWidth="148.666748046875" text="Name" />
+                              <TableColumn fx:id="employeePositionColumn" prefWidth="93.2042236328125" text="Position" />
+                              <TableColumn fx:id="employeeAddressColumn" prefWidth="76.79583740234375" text="Address" />
+                              <TableColumn fx:id="employeeContactNoColumn" prefWidth="109.66668701171875" text="Contact" />
+                              <TableColumn fx:id="employeeDOBColumn" prefWidth="85.33331298828125" text="DOB" />
+                              <TableColumn fx:id="employeeGenderColumn" prefWidth="65.6666259765625" text="Gender" />
+                              <TableColumn fx:id="employeeCreatedByColumn" text="Created_By" />
+                              <TableColumn fx:id="employeeCreatedAtColumn" prefWidth="100.0" text="Created_At" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="cashierPane" layoutX="131.0" layoutY="24.0" prefHeight="504.0" prefWidth="969.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="cashierPane" layoutX="90.0" layoutY="24.0" prefHeight="517.0" prefWidth="983.0" style="-fx-background-color: #ececec; -fx-border-color: #6ccccc; -fx-border-width: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane layoutX="20.0" layoutY="33.0" prefHeight="432.0" prefWidth="505.0" style="-fx-border-color: #19B5FE; -fx-background-color: #fff;">
+                  <AnchorPane layoutX="17.0" layoutY="25.0" prefHeight="432.0" prefWidth="505.0" style="-fx-border-color: #6ccccc; -fx-background-color: #fff;">
                      <children>
                         <Label layoutX="12.0" layoutY="11.0" text="Registration">
                            <font>
@@ -187,7 +326,7 @@
                                        </effect>
                                     </JFXTextField>
                                     <Label prefHeight="17.0" prefWidth="42.0" text="DOB" />
-                                    <JFXDatePicker fx:id="cashierDobDatePicker" defaultColor="#19b5fe" />
+                                    <JFXDatePicker fx:id="cashierDobDatePicker" defaultColor="#6ccccc" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="42.0" prefWidth="369.0" spacing="20.0">
@@ -225,7 +364,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="323.0" layoutY="352.0" onAction="#cashierRegisterBtnPushed" prefHeight="48.0" prefWidth="108.0" ripplerFill="#1f3a93" text="Register" />
+                        <JFXButton buttonType="RAISED" layoutX="323.0" layoutY="352.0" onAction="#cashierRegisterBtnPushed" prefHeight="48.0" prefWidth="108.0" ripplerFill="#6ccccc" style="-fx-border-color: #6ccccc; -fx-background-color: #6ccccc;" text="Register" />
                         <Label fx:id="cashierStatusLabel" layoutX="49.0" layoutY="361.0" prefHeight="25.0" prefWidth="186.0" text="Label" textFill="#3acc1d">
                            <font>
                               <Font size="18.0" />
@@ -233,64 +372,44 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ScrollPane layoutX="535.0" layoutY="33.0" prefHeight="432.0" prefWidth="455.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="535.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="33.0">
+                  <ScrollPane layoutX="541.4" layoutY="22.4" prefHeight="459.0" prefWidth="431.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="539.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="20.0">
                      <content>
-                        <AnchorPane prefHeight="431.0" prefWidth="454.0">
-                           <children>
-                              <TableView fx:id="cashierTableView" prefHeight="419.0" prefWidth="829.0">
-                                 <columns>
-                                    <TableColumn fx:id="cashierSNoColumn" prefWidth="31.0" text="S.No" />
-                                    <TableColumn fx:id="cashierNameColumn" prefWidth="148.666748046875" text="Name" />
-                                    <TableColumn fx:id="cashierUsernameColumn" prefWidth="91.0" text="Username" />
-                                    <TableColumn fx:id="cashierAddressColumn" prefWidth="95.0" text="Address" />
-                                    <TableColumn fx:id="cashierContactNoColumn" prefWidth="109.66668701171875" text="Contact" />
-                                    <TableColumn fx:id="cashierDOBColumn" prefWidth="85.33331298828125" text="DOB" />
-                                    <TableColumn fx:id="cashierGenderColumn" prefWidth="65.6666259765625" text="Gender" />
-                                    <TableColumn fx:id="cashierCreatedByColumn" text="Created_By" />
-                                    <TableColumn fx:id="cashierCreatedAtColumn" prefWidth="100.0" text="Created_At" />
-                                 </columns>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
+                        <TableView fx:id="cashierTableView" prefHeight="521.0" prefWidth="829.0">
+                           <columns>
+                              <TableColumn fx:id="cashierSNoColumn" prefWidth="31.0" text="S.No" />
+                              <TableColumn fx:id="cashierNameColumn" prefWidth="148.666748046875" text="Name" />
+                              <TableColumn fx:id="cashierUsernameColumn" prefWidth="98.33331298828125" text="Username" />
+                              <TableColumn fx:id="cashierAddressColumn" prefWidth="100.00006103515625" text="Address" />
+                              <TableColumn fx:id="cashierContactNoColumn" prefWidth="110.4515380859375" text="Contact" />
+                              <TableColumn fx:id="cashierDOBColumn" prefWidth="73.5484619140625" text="DOB" />
+                              <TableColumn fx:id="cashierGenderColumn" prefWidth="65.6666259765625" text="Gender" />
+                              <TableColumn fx:id="cashierCreatedByColumn" text="Created_By" />
+                              <TableColumn fx:id="cashierCreatedAtColumn" prefWidth="117.0" text="Created_At" />
+                           </columns>
+                        </TableView>
                      </content>
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="41.0" layoutY="62.0" prefHeight="200.0" prefWidth="84.0" style="-fx-background-color: #C5EFF7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane layoutX="-5.0" layoutY="8.0" prefHeight="445.0" prefWidth="95.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <VBox layoutX="-1.0" layoutY="12.0" prefHeight="550.0" prefWidth="84.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox layoutX="2.0" layoutY="13.0" prefHeight="522.0" prefWidth="95.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <JFXButton onAction="#cashierSideMenuBtnPushed" prefHeight="75.0" prefWidth="83.0" text="Cashier" />
-                        <JFXButton onAction="#deoSideMenuBtnPushed" prefHeight="75.0" prefWidth="83.0" text="DEO" />
-                        <JFXButton onAction="#employeeSideMenuBtnPushed" prefHeight="75.0" prefWidth="83.0" text="Employees" />
+                        <JFXButton onAction="#cashierSideMenuBtnPushed" prefHeight="60.0" prefWidth="81.0" style="-fx-background-color: #6ccccc;" text="Cashier" />
+                        <JFXButton onAction="#deoSideMenuBtnPushed" prefHeight="60.0" prefWidth="81.0" style="-fx-background-color: #6ccccc;" text="DEO" />
+                        <JFXButton onAction="#employeeSideMenuBtnPushed" prefHeight="60.0" prefWidth="81.0" style="-fx-background-color: #6ccccc;" text="Others" />
                      </children>
+                     <padding>
+                        <Insets left="5.0" top="10.0" />
+                     </padding>
                   </VBox>
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <MenuBar prefHeight="25.0" prefWidth="1101.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <AnchorPane layoutX="71.0" layoutY="33.0" prefHeight="69.0" prefWidth="1100.0" style="-fx-background-color: #C5EFF7;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <AnchorPane layoutY="-4.0" prefHeight="69.0" prefWidth="1100.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton layoutX="96.0" layoutY="1.0" onAction="#employeeBtnPushed" prefHeight="68.0" prefWidth="79.0" text="Employee" />
+            <JFXButton layoutX="96.0" layoutY="5.0" onAction="#employeeBtnPushed" prefHeight="60.0" prefWidth="85.0" style="-fx-background-color: #6ccccc;" text="Employee" />
             <Pane layoutX="704.0" layoutY="-12.0" prefHeight="82.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
                <children>
                   <ImageView fitHeight="70.0" fitWidth="69.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
@@ -298,9 +417,17 @@
                         <Image url="@../images/usericon.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="managerName" layoutX="81.0" layoutY="39.0" text="Name" />
+                  <Label fx:id="managerName" layoutX="85.0" layoutY="20.0" text="Name" />
+                  <JFXButton layoutX="81.0" layoutY="43.0" onAction="#logoutBtnPushed" style="-fx-background-color: #EC644B;" text="Logout" />
                </children>
             </Pane>
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.380001068115234" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="9.0">
+               <image>
+                  <Image url="@../images/menu-icon%20(1).png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="191.0" layoutY="5.0" onAction="#notificationBtnPushed" prefHeight="60.0" prefWidth="85.0" style="-fx-background-color: #6ccccc;" text="Notification" />
+            <JFXButton layoutX="286.0" layoutY="5.0" onAction="#logsBtnPushed" prefHeight="60.0" prefWidth="85.0" style="-fx-background-color: #6ccccc;" text="Logs" />
          </children>
       </AnchorPane>
    </children>

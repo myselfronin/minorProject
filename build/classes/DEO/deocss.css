@@ -1,9 +1,5 @@
-.addProductBckgnd{
-    -fx-background-image: url("/images/bluecart.png");
+
+.addicon{
+     -fx-background-image: url("/images/addicon.png");
     -fx-background-size: 100% 100%;
-}
-.addProductBckgnd:hover{
-    -fx-background-image: url("/images/adduser.png");
-    -fx-background-size: 100% 100%;
-    -fx-background-color: #19B5FE;
 }

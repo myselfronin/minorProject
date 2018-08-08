@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" style="-fx-border-color: #6ccccc; -fx-background-color: #ececec; -fx-border-width: 0.78em;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.SearchController">
+   <children>
+      <AnchorPane layoutX="28.4" layoutY="27.4" prefHeight="87.0" prefWidth="1012.0" style="-fx-background-color: #ececec; -fx-border-color: #6ccccc;" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="18.0">
+         <children>
+            <StackPane layoutX="20.0" layoutY="-61.0" prefHeight="91.0" prefWidth="1012.1999999999998" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <Label layoutX="283.0" prefHeight="51.0" prefWidth="507.0" text="Pokhara Supermarket Pvt. Ltd." textFill="#6ccccc" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="35.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="374.0" layoutY="44.0" prefHeight="27.0" prefWidth="271.0" text="Lamachour -16, Pokhara, Nepal" textFill="#6ccccc" AnchorPane.leftAnchor="374.0" AnchorPane.rightAnchor="347.0" AnchorPane.topAnchor="44.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="employeeAnchorPane" layoutX="36.4" layoutY="131.4" prefHeight="468.0" prefWidth="1003.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="122.0">
+         <children>
+            <ScrollPane fx:id="resultScrollPane" layoutX="22.0" layoutY="105.0" prefHeight="329.0" prefWidth="948.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0" />
+            <Pane layoutX="27.0" layoutY="6.0" prefHeight="42.0" prefWidth="941.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="5.0">
+               <children>
+                  <Label fx:id="resultNotFoundLabel" layoutX="3.0" layoutY="7.0" prefHeight="39.0" prefWidth="529.0" text="Sorry, Not Found.... Try below search option" textFill="#757575">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <Glow />
+               </effect>
+            </Pane>
+            <Label layoutX="277.0" layoutY="64.0" text="Category">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="searchCategoryComboBox" layoutX="354.0" layoutY="57.0" onAction="#searchCategoryComboBoxAction" prefHeight="25.0" prefWidth="141.0" />
+            <Label layoutX="521.0" layoutY="63.0" text="SubCategory">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="searchSubCategoryComboBox" layoutX="619.0" layoutY="56.0" onAction="#searchSubCategoryComboBoxAction" prefHeight="25.0" prefWidth="141.0" />
+            <JFXComboBox fx:id="searchDepartmentComboBox" layoutX="108.0" layoutY="58.0" onAction="#searchDeparmentComboBoxAction" prefHeight="25.0" prefWidth="141.0" />
+            <Label layoutX="22.0" layoutY="64.0" text="Department">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

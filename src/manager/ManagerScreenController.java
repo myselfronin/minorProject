@@ -7,9 +7,10 @@ package manager;
 
 import Cashier.CashierDetails;
 import DEO.DEODetails;
-import Main.Hashing;
+import Main.*;
 import Connectivity.DbConnection;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
@@ -34,6 +35,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -52,7 +54,6 @@ import javafx.scene.layout.VBox;
  */
 public class ManagerScreenController implements Initializable {
 
-    
     @FXML
     private AnchorPane employeeAnchorPane;
     //Data Entry Operator Scene
@@ -99,7 +100,7 @@ public class ManagerScreenController implements Initializable {
     @FXML
     private Label deoStatusLabel;
     private JFXButton saleBtn;
-       private Label nameLabel;
+    private Label nameLabel;
     private Label expireLabel;
     private ToggleGroup deoGenderToggleGroup;
 
@@ -187,16 +188,32 @@ public class ManagerScreenController implements Initializable {
     private Label employeeStatusLabel;
 
     // notification scene
-    
     @FXML
     private AnchorPane notificationAnchorPane;
     @FXML
     private ScrollPane notifyExpireDate;
     @FXML
     private ScrollPane notifyQty;
+    
+    //logs Scene
+    @FXML
+    private AnchorPane logsAnchorPane;
+    @FXML
+    private AnchorPane cashierLogPane;
+    @FXML
+    private AnchorPane deoLogPane;
+    @FXML
+    private ScrollPane deoScrollPane;
+    @FXML
+    private ScrollPane cashierScrollPane;
+    @FXML
+    private JFXComboBox deoLogsComboBox;
+    @FXML
+    private JFXComboBox cashierLogsComboBox;
+ 
+    
     private VBox expireVbox = new VBox();
     private VBox qtyVbox = new VBox();
-  
 
     private ToggleGroup employeeGenderToggleGroup;
     //for gender 
@@ -211,6 +228,10 @@ public class ManagerScreenController implements Initializable {
     private ResultSet Result;
 
     //Button Actions
+     public void logoutBtnPushed(ActionEvent event)
+    {
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
     @FXML
     public void employeeBtnPushed() {
         employeeAnchorPane.toFront();
@@ -220,7 +241,20 @@ public class ManagerScreenController implements Initializable {
     public void notificationBtnPushed() {
         notificationAnchorPane.toFront();
     }
-
+    
+    @FXML
+    public void logsBtnPushed()
+    {
+        logsAnchorPane.toFront();
+    }
+    @FXML
+    public void CashierLogsSideBtnPushed(){
+        cashierLogPane.toFront();
+    }
+    @FXML
+    public void DeoLogsSideBtnPushed(){
+        deoLogPane.toFront();
+    }
     @FXML
     public void cashierSideMenuBtnPushed() {
         cashierPane.toFront();
@@ -239,15 +273,11 @@ public class ManagerScreenController implements Initializable {
     @FXML
     public void cashierRegisterBtnPushed() throws SQLException, NoSuchAlgorithmException {
         try {
-            String sql = "INSERT INTO cashier_info (Name, Username, Password, Address,DOB, Contact_No, Gender,Created_By,Created_At) VALUES(?,?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO cashier_info (Name, Username, Password, Address,DOB, Contact_No, Gender,Created_By,Created_At) VALUES(?,?,?,?,?,?,?,?,now());";
 
             //For password HASHING
             Hashing hashpass = new Hashing();
             String hashedpass = hashpass.Hashing(cashierPasswordField.getText());
-
-            //For DATE AND TIME for Created At
-            DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-            Date dateobj = new Date();
 
             if (cashierGenderToggleGroup.getSelectedToggle().equals(cashierMaleRadioBtn)) {
                 cashierGender = "Male";
@@ -263,12 +293,11 @@ public class ManagerScreenController implements Initializable {
             PreStmt.setString(5, cashierDobDatePicker.getValue().toString());
             PreStmt.setString(6, cashierContactNoTextField.getText());
             PreStmt.setString(7, cashierGender);
-            PreStmt.setString(8, "jasmine");
-            PreStmt.setString(9, df.format(dateobj));
+            PreStmt.setString(8, managerName.getText());
 
             int i = PreStmt.executeUpdate();
             if (i == 1) {
-
+                cashierStatusLabel.setVisible(true);
                 cashierStatusLabel.setText("Registration Successful");
                 cashierNameTextField.setText("");
                 cashierUsernameTextField.setText("");
@@ -290,15 +319,13 @@ public class ManagerScreenController implements Initializable {
     @FXML
     public void deoRegisterBtnPushed() throws SQLException, NoSuchAlgorithmException {
         try {
-            String sql = "INSERT INTO deo_info (Name, Username, Password, Address,DOB, Contact_No, Gender,Created_By,Created_At) VALUES(?,?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO deo_info (Name, Username, Password, Address,DOB, Contact_No,"
+                    + " Gender,Created_By,Created_At) VALUES(?,?,?,?,?,?,?,?,now());";
 
             //Password HASHING
             Hashing hashpass = new Hashing();
             String deohashedpass = hashpass.Hashing(deoPasswordField.getText());
 
-            //For Registration date and time
-            DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-            Date dateobj = new Date();
 
             if (deoGenderToggleGroup.getSelectedToggle().equals(deoMaleRadioBtn)) {
                 deoGender = "Male";
@@ -314,11 +341,11 @@ public class ManagerScreenController implements Initializable {
             PreStmt.setString(5, deoDobDatePicker.getValue().toString());
             PreStmt.setString(6, deoContactNoTextField.getText());
             PreStmt.setString(7, deoGender);
-            PreStmt.setString(8, "jasmine");
-            PreStmt.setString(9, df.format(dateobj));
+            PreStmt.setString(8,managerName.getText() );
 
             int i = PreStmt.executeUpdate();
             if (i == 1) {
+                deoStatusLabel.setVisible(true);
                 deoStatusLabel.setText("Registration Successful");
                 deoNameTextField.setText("");
                 deoUsernameTextField.setText("");
@@ -362,6 +389,7 @@ public class ManagerScreenController implements Initializable {
             PreStmt.setString(8, df.format(dateobj));
             int i = PreStmt.executeUpdate();
             if (i == 1) {
+                employeeStatusLabel.setVisible(true);
                 employeeStatusLabel.setText("Registration Successful");
                 employeeNameTextField.setText("");
                 employeeAddressTextField.setText("");
@@ -372,14 +400,14 @@ public class ManagerScreenController implements Initializable {
             System.out.println("Error: " + ex);
         } finally {
             PreStmt.close();
+
             employeeTableView.setItems(getEmployee());
 
         }
 
     }
-   
- ///for notification in manager screen
-    
+
+    ///for notification in manager screen
     public void managerExpireDateNotification() throws SQLException {
         expireVbox.getChildren().clear();
         expireVbox.setStyle("-fx-background-color: white;");
@@ -392,159 +420,323 @@ public class ManagerScreenController implements Initializable {
         String query = "update batch_table set expire_status = 'expired' where datediff(Expire_date,now())<0";
         PreStmt = Con.prepareStatement(query);
         PreStmt.executeUpdate();
-        
+
         String sqll = "SELECT * FROM batch_table inner join product_table"
                 + " on batch_table.product_Id = product_table.product_Id "
-                + "where expire_status like 'expiring' or expire_status like 'expired'";
-        PreStmt= Con.prepareStatement(sqll);
-        Result= PreStmt.executeQuery();
-       String[] product_id = new String[100];
-       int[] batch_no = new int[100];
-       JFXButton[] btn = new JFXButton[100];
-       int i=0;
-        if(Result.next())
-        {
-             while(Result.next())
-        {
-            int j= i;
-            product_id[j]= Result.getString("product_id");
-            batch_no[j]= Result.getInt("batch_no");
-             Pane pane2= new Pane();
-            pane2.setPrefSize(400,100);
-            pane2.setStyle("-fx-background-color: rgb(253, 227, 167);");
-            Label name = new Label();
-            name.setText("NAME\t" + Result.getString("name"));
-            Label department = new Label();
-            department.setText("DEPARTMENT\t" + Result.getString("department"));
-           department.setTranslateX(150);
-             Label category = new Label();
-            category.setText("CATEGORY\t" +Result.getString("category"));
-            category.setTranslateY(30);
-             Label subcategory= new Label();
-            subcategory.setText("SUBCATEGORY\t" + Result.getString("subcategory"));
-            subcategory.setTranslateX(150);
-            subcategory.setTranslateY(30);
-             Label status = new Label();
-            status.setText("STATUS\t" + Result.getString( "expire_status"));
-            status.setTranslateY(60);
-             status.setTranslateX(150);
-            btn[i] = new JFXButton("SALE");
-             if("Sale".equals(Result.getString("type")))
-            {
-                btn[i].setDisable(true);
-            }
-            btn[i].setOnAction(new EventHandler<ActionEvent>(){
-               @Override public void handle(ActionEvent e){
-                   
-                   try {
-                       String sql = "update batch_table set type = 'Sale' where batch_no = ? and product_id = ?";
-                        PreStmt= Con.prepareStatement(sql);
-                       PreStmt.setInt(1, batch_no[j]);
-                       PreStmt.setString(2, product_id[j]);
-                       PreStmt.executeUpdate();
-                   } catch (SQLException ex) {
-                       Logger.getLogger(ManagerScreenController.class.getName()).log(Level.SEVERE, null, ex);
-                   }
-                   
+                + "where expire_status like 'expiring' or expire_status like 'expired' and not type = 'Returned'";
+        PreStmt = Con.prepareStatement(sqll);
+        Result = PreStmt.executeQuery();
+        String[] product_id = new String[100];
+        int[] batch_no = new int[100];
+        JFXButton[] btn = new JFXButton[100];
+        int i = 0;
+        if (Result.next()) {
+            while (Result.next()) {
+                int j = i;
+                product_id[j] = Result.getString("product_id");
+                batch_no[j] = Result.getInt("batch_no");
+                Pane pane2 = new Pane();
+                pane2.setPrefSize(400, 100);
+                pane2.setStyle("-fx-background-color: rgb(200, 247, 197);");
+                Label name = new Label();
+                name.setText("NAME");
+                name.setTranslateX(10);
+                name.setTranslateY(10);
+                Label pname = new Label();
+                pname.setText(Result.getString("name"));
+                pname.setTranslateX(100);
+                pname.setTranslateY(10);
+                Label department = new Label();
+                department.setText("DEPARTMENT");
+                department.setTranslateX(10);
+                department.setTranslateY(30);
+                Label pdepartment = new Label();
+                pdepartment.setText(Result.getString("department"));
+                pdepartment.setTranslateX(100);
+                pdepartment.setTranslateY(30);
+                Label category = new Label();
+                category.setText("CATEGORY");
+                category.setTranslateX(10);
+                category.setTranslateY(50);
+                Label pcategory = new Label();
+                pcategory.setText(Result.getString("category"));
+                pcategory.setTranslateX(100);
+                pcategory.setTranslateY(50);
+                Label subcategory = new Label();
+                subcategory.setText("SUBCATEGORY");
+                subcategory.setTranslateX(10);
+                subcategory.setTranslateY(70);
+                Label psubcategory = new Label();
+                psubcategory.setText(Result.getString("subcategory"));
+                psubcategory.setTranslateX(100);
+                psubcategory.setTranslateY(70);
+                Label status = new Label();
+                status.setText("STATUS");
+                status.setTranslateX(250);
+                status.setTranslateY(50);
+                Label pstatus = new Label();
+                pstatus.setText(Result.getString("expire_status"));
+                pstatus.setTranslateX(300);
+                pstatus.setTranslateY(50);
+                if (Result.getString("expire_status").equals("expiring")) {
+                    btn[i] = new JFXButton("SALE");
+                    if ("Sale".equals(Result.getString("type"))) {
+                        btn[i].setDisable(true);
+                    }
+                    btn[i].setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent e) {
+
+                            try {
+                                String sql = "update batch_table set type = 'Sale' where batch_no = ? and product_id = ?";
+                                PreStmt = Con.prepareStatement(sql);
+                                PreStmt.setInt(1, batch_no[j]);
+                                PreStmt.setString(2, product_id[j]);
+                                PreStmt.executeUpdate();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(ManagerScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                        }
+                    });
+
+                    btn[i].setStyle("-fx-background-color:rgb(34, 167, 240);");
+                    btn[i].setTranslateY(70);
+                    btn[i].setTranslateX(320);
+                } else if (Result.getString("expire_status").equals("expired")) {
+                    btn[i] = new JFXButton("Returned");
+                    btn[i].setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent e) {
+
+                            try {
+                                String sql = "update batch_table set type = 'Returned' where batch_no = ? and product_id = ?";
+                                PreStmt = Con.prepareStatement(sql);
+                                PreStmt.setInt(1, batch_no[j]);
+                                PreStmt.setString(2, product_id[j]);
+                                PreStmt.executeUpdate();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(ManagerScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                        }
+                    });
+
+                    btn[i].setStyle("-fx-background-color:rgb(34, 167, 240);");
+                    btn[i].setTranslateY(60);
+                    btn[i].setTranslateX(300);
                 }
-            });
-           
-             btn[i].setStyle("-fx-background-color:rgb(25, 181, 254);");
-             btn[i].setTranslateY(30);
-             btn[i].setTranslateX(300);
-             pane2.getChildren().addAll(name,department,category,subcategory,status,btn[i]);
-            expireVbox.getChildren().add(pane2);
-            i++;
-        }
-        }
-        else
-        {     Pane pane= new Pane();
-            pane.setPrefSize(400,100);
-            pane.setStyle("-fx-background-color: rgb(162, 222, 208);");
+                pane2.getChildren().addAll(name, pname, department, pdepartment, category, pcategory,
+                        subcategory, psubcategory, status, pstatus, btn[i]);
+                expireVbox.getChildren().add(pane2);
+                i++;
+            }
+        } else {
+            Pane pane = new Pane();
+            pane.setPrefSize(400, 100);
+            pane.setStyle("-fx-background-color: rgb(200, 247, 197);");
             Label name = new Label();
             name.setText("NO ANY NOFICATION");
             pane.getChildren().add(name);
             expireVbox.getChildren().add(pane);
-            
+
         }
-      notifyExpireDate.setContent(expireVbox);
+        notifyExpireDate.setContent(expireVbox);
 
     }
-    
+
     // Notification of low quantity in the store
-    public void managerQtyNotification() throws SQLException
-    {
-         qtyVbox.getChildren().clear();
+    public void managerQtyNotification() throws SQLException {
+        qtyVbox.getChildren().clear();
         qtyVbox.setStyle("-fx-background-color: white;");
         qtyVbox.setSpacing(10);
-        
-         String sqll = "select product_table.name, product_table.Department, product_table.Category,"
-                 + "product_table.SubCategory , (sum(EntryQty) - sum( SoldQty)) as remaining "
-                 + "from batch_table inner join product_table "
-                 + "on batch_table.product_Id = product_table.product_Id "
-                 + "where not type = 'sold'"
-                 + "group by batch_table.product_Id";
-         PreStmt = Con.prepareStatement(sqll);
-         Result = PreStmt.executeQuery();
-         if(Result.next())
-         {
-         while(Result.next())
-         {
-             if(Result.getInt("remaining")<100)
-             {
-               Pane pane= new Pane();
-            pane.setPrefSize(400,100);
-            pane.setStyle("-fx-background-color: rgb(253, 227, 167);");
-            Label name = new Label();
-            name.setText("NAME\t" + Result.getString("name"));
-            Label department = new Label();
-            department.setText("DEPARTMENT\t" + Result.getString("department"));
-           department.setTranslateX(150);
-             Label category = new Label();
-            category.setText("CATEGORY\t" +Result.getString("category"));
-            category.setTranslateY(30);
-             Label subcategory= new Label();
-            subcategory.setText("SUBCATEGORY\t" + Result.getString("subcategory"));
-            subcategory.setTranslateX(150);
-            subcategory.setTranslateY(30);
-             Label remaining = new Label();
-             int num = Result.getInt("remaining");
-            remaining.setText("STATUS\t" + num);
-            remaining.setTranslateY(60);
-            remaining.setTranslateX(150);
-             pane.getChildren().addAll(name,department,category,subcategory,remaining);
-             qtyVbox.getChildren().add(pane);
-         }
-         }
-         }
-         else
-        {     Pane pane= new Pane();
-            pane.setPrefSize(400,100);
-            pane.setStyle("-fx-background-color: rgb(162, 222, 208);");
+
+        String sqll = "select product_table.name, product_table.Department, product_table.Category,"
+                + "product_table.SubCategory , (sum(EntryQty) - sum( SoldQty)) as remaining "
+                + "from batch_table inner join product_table "
+                + "on batch_table.product_Id = product_table.product_Id "
+                + "where not type = 'sold'"
+                + "group by batch_table.product_Id";
+        PreStmt = Con.prepareStatement(sqll);
+        Result = PreStmt.executeQuery();
+        if (Result.next()) {
+            while (Result.next()) {
+                if (Result.getInt("remaining") < 100) {
+                    Pane pane = new Pane();
+                    pane.setPrefSize(400, 100);
+                    pane.setStyle("-fx-background-color: rgb(200, 247, 197);");
+                    Label name = new Label();
+                    name.setText("NAME");
+                    name.setTranslateX(10);
+                    name.setTranslateY(10);
+                    Label pname = new Label();
+                    pname.setText(Result.getString("name"));
+                    pname.setTranslateX(100);
+                    pname.setTranslateY(10);
+                    Label department = new Label();
+                    department.setText("DEPARTMENT");
+                    department.setTranslateX(10);
+                    department.setTranslateY(30);
+                    Label pdepartment = new Label();
+                    pdepartment.setText(Result.getString("department"));
+                    pdepartment.setTranslateX(100);
+                    pdepartment.setTranslateY(30);
+                    Label category = new Label();
+                    category.setText("CATEGORY");
+                    category.setTranslateX(10);
+                    category.setTranslateY(50);
+                    Label pcategory = new Label();
+                    pcategory.setText(Result.getString("category"));
+                    pcategory.setTranslateX(100);
+                    pcategory.setTranslateY(50);
+                    Label subcategory = new Label();
+                    subcategory.setText("SUBCATEGORY");
+                    subcategory.setTranslateX(10);
+                    subcategory.setTranslateY(70);
+                    Label psubcategory = new Label();
+                    psubcategory.setText(Result.getString("subcategory"));
+                    psubcategory.setTranslateX(100);
+                    psubcategory.setTranslateY(70);
+                    Label remaining = new Label();
+                    int num = Result.getInt("remaining");
+                    remaining.setText("REMAINING\t" + num);
+                    remaining.setTranslateY(50);
+                    remaining.setTranslateX(250);
+                    pane.getChildren().addAll(name, pname, department, pdepartment,
+                            category, pcategory, subcategory, psubcategory, remaining);
+                    qtyVbox.getChildren().add(pane);
+                }
+            }
+        } else {
+            Pane pane = new Pane();
+            pane.setPrefSize(400, 100);
+            pane.setStyle("-fx-background-color: rgb(200, 247, 197);");
             Label name = new Label();
             name.setText("NO ANY NOFICATION");
             pane.getChildren().add(name);
             qtyVbox.getChildren().add(pane);
-            
-        }  
-             
-             
-         notifyQty.setContent(qtyVbox);
-         
+
+        }
+
+        notifyQty.setContent(qtyVbox);
+
     }
     
-
+    public void cashierList() throws SQLException
+    {
+        String sql = "select username from cashier_info";
+        PreStmt = Con.prepareStatement(sql);
+        Result = PreStmt.executeQuery();
+        while(Result.next())
+        {
+            cashierLogsComboBox.getItems().add(Result.getString("username"));
+        }
+    }
+     public void deoList() throws SQLException
+    {
+        String sql = "select username from deo_info";
+        PreStmt = Con.prepareStatement(sql);
+        Result = PreStmt.executeQuery();
+        while(Result.next())
+        {
+            deoLogsComboBox.getItems().add(Result.getString("username"));
+        }
+    }
+     public int CashierQuery() throws SQLException
+     {
+         int id = 0;
+         String sql = "select cashier_id from cashier_info where username = ?";
+         PreStmt = Con.prepareStatement(sql);
+         PreStmt.setString(1,cashierLogsComboBox.getValue().toString());
+         Result = PreStmt.executeQuery();
+         while(Result.next())
+         {
+             id = Result.getInt("cashier_Id");
+         }
+         return id;
+     }
+      public int deoQuery() throws SQLException
+     {
+         int id = 0;
+         String sql = "select deo_id from deo_info where username = ?";
+         PreStmt = Con.prepareStatement(sql);
+         PreStmt.setString(1,deoLogsComboBox.getValue().toString());
+         Result = PreStmt.executeQuery();
+         while(Result.next())
+         {
+             id = Result.getInt("deo_Id");
+         }
+         return id;
+     }
+    @FXML
+    public void cashierComboAction() throws SQLException
+    {
+        VBox vbox = new VBox();
+        vbox.setSpacing(10);
+        String sql = "select * from invoice_table where cashier_Id = ? order by date";
+        PreparedStatement Pre = Con.prepareStatement(sql);
+        Pre.setInt(1,CashierQuery());
+        ResultSet rs = Pre.executeQuery();
+        while(rs.next())
+        {
+            Pane pane = new Pane();
+            pane.setPrefSize(800,30);
+            Label invoice = new Label();
+            invoice.setText(rs.getString("invoice_number"));
+            Label amount = new Label();
+            amount.setText(rs.getString("amount"));
+            amount.setTranslateX(300);
+            Label date = new Label();
+            date.setText(rs.getString("date"));
+            date.setTranslateX(600);
+            pane.setStyle("-fx-background-color: #6ccccc");
+            pane.getChildren().addAll(invoice, amount, date);
+            vbox.getChildren().add(pane);
+        }
+        cashierScrollPane.setContent(vbox);
+        
+    }
+    @FXML
+    public void deoComboAction() throws SQLException
+    {
+        VBox vbox = new VBox();
+        vbox.setSpacing(10);
+        String sql = "select * from batch_table where deo_Id = ?";
+        PreparedStatement Pre = Con.prepareStatement(sql);
+        Pre.setInt(1,deoQuery());
+        ResultSet rs = Pre.executeQuery();
+        while(rs.next())
+        {
+            Pane pane = new Pane();
+            pane.setPrefSize(800,30);
+            Label batch = new Label();
+            batch.setText(rs.getString("batch_No"));
+            Label entryQty = new Label();
+            entryQty.setText(rs.getString("entryQty"));
+            entryQty.setTranslateX(300);
+            Label date = new Label();
+            date.setText(rs.getString("entry_date"));
+            date.setTranslateX(600);
+            pane.setStyle("-fx-background-color: #6ccccc");
+            pane.getChildren().addAll(batch, entryQty, date);
+            vbox.getChildren().add(pane);
+        }
+        deoScrollPane.setContent(vbox);
+        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-        
+        HomeController info = new HomeController();
+        managerName.setText(info.managerName);
         DbConnection connect = new DbConnection();
-
+        
         try {
             Con = connect.DbConnect();
             managerExpireDateNotification();
             managerQtyNotification();
-            
+            cashierList();
+        deoList();
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManagerScreenController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -554,17 +746,19 @@ public class ManagerScreenController implements Initializable {
         employeeGenderToggleGroup = new ToggleGroup();
         this.employeeMaleRadioBtn.setToggleGroup(employeeGenderToggleGroup);
         this.employeeFemaleRadioBtn.setToggleGroup(employeeGenderToggleGroup);
-        employeePositionChoiceBox.getItems().addAll("Security", "Stock Clerk", "Sanitary");
-        employeePositionChoiceBox.setValue("Shop Walker");
+        employeePositionChoiceBox.getItems().addAll("Security", "Stock Clerk", "Sanitary", "Shop Walker");
+        employeeStatusLabel.setVisible(false);
 
         cashierGenderToggleGroup = new ToggleGroup();
         this.cashierMaleRadioBtn.setToggleGroup(cashierGenderToggleGroup);
         this.cashierFemaleRadioBtn.setToggleGroup(cashierGenderToggleGroup);
+        cashierStatusLabel.setVisible(false);
 
         deoGenderToggleGroup = new ToggleGroup();
         this.deoMaleRadioBtn.setToggleGroup(deoGenderToggleGroup);
         this.deoFemaleRadioBtn.setToggleGroup(deoGenderToggleGroup);
-        
+        deoStatusLabel.setVisible(false);
+
         cashierSNoColumn.setCellValueFactory(new PropertyValueFactory<>("SNo"));
         cashierNameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         cashierUsernameColumn.setCellValueFactory(new PropertyValueFactory<>("Username"));
@@ -596,7 +790,7 @@ public class ManagerScreenController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(ManagerScreenController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         employeeSNoColumn.setCellValueFactory(new PropertyValueFactory<>("SNo"));
         employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         employeePositionColumn.setCellValueFactory(new PropertyValueFactory<>("Position"));
@@ -661,5 +855,5 @@ public class ManagerScreenController implements Initializable {
         }
         return Employee;
     }
-    
+
 }

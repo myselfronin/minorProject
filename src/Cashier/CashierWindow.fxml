@@ -3,253 +3,26 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="1280.0" style="-fx-background-color: #E4F1FE;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cashier.CashierWindowController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="1280.0" style="-fx-background-color: #fffff; -fx-border-color: #6ccccc; -fx-border-width: 7px;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cashier.CashierWindowController">
    <children>
-      <AnchorPane layoutY="76.0" prefHeight="605.0" prefWidth="81.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1199.0" AnchorPane.topAnchor="76.0">
-         <effect>
-            <DropShadow />
-         </effect></AnchorPane>
-      <AnchorPane layoutX="156.0" layoutY="279.0" prefHeight="347.0" prefWidth="578.0" AnchorPane.leftAnchor="156.0">
+      <AnchorPane fx:id="returnAnchorPane" layoutY="87.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0" />
+      <AnchorPane fx:id="saleAnchorPane" layoutX="231.0" layoutY="43.0" prefHeight="548.0" prefWidth="934.0" style="-fx-background-color: #ececec;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0">
          <children>
-            <TableView layoutX="34.0" layoutY="59.0" prefHeight="366.0" prefWidth="675.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <columns>
-                  <TableColumn prefWidth="51.66668701171875" text="S.No" />
-                  <TableColumn prefWidth="247.33331298828125" text="Description" />
-                  <TableColumn prefWidth="53.3333740234375" text="Qty" />
-                  <TableColumn prefWidth="72.33331298828125" text="Rate" />
-                  <TableColumn prefWidth="88.6666259765625" text="Amount" />
-               </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="817.0" layoutY="102.0" prefHeight="521.0" prefWidth="375.0" AnchorPane.bottomAnchor="56.0" AnchorPane.topAnchor="102.0">
-         <children>
-            <AnchorPane layoutX="18.0" layoutY="366.0" prefHeight="129.0" prefWidth="331.0" style="-fx-border-color: #fff;">
-               <children>
-                  <VBox layoutX="1.0" prefHeight="146.0" prefWidth="266.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <HBox prefHeight="49.0" prefWidth="266.0">
-                           <children>
-                              <Label prefHeight="27.0" prefWidth="98.0" text="Recieved">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField prefHeight="39.0" prefWidth="126.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </TextField>
-                              <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="52.0" text="Button" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="49.0" prefWidth="266.0">
-                           <children>
-                              <Label text="Return">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Label">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </padding>
-            </AnchorPane>
-            <AnchorPane layoutX="9.0" prefHeight="318.0" prefWidth="344.0" style="-fx-border-color: #fff;">
-               <children>
-                  <VBox layoutX="192.0" layoutY="77.0" prefHeight="279.0" prefWidth="344.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <HBox prefHeight="43.0" prefWidth="342.0" spacing="15.0">
-                           <children>
-                              <Label text="BarCode">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="43.0" prefWidth="342.0" spacing="15.0">
-                           <children>
-                              <Label text="Code">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="43.0" prefWidth="342.0" spacing="25.0">
-                           <children>
-                              <Label text="Name">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Label">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="43.0" prefWidth="342.0" spacing="20.0">
-                           <children>
-                              <Label text="Price">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Label">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Qty">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="43.0" prefWidth="342.0" spacing="25.0">
-                           <children>
-                              <Label text="Sub Total">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="label">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="43.0" prefWidth="342.0" spacing="10.0">
-                           <children>
-                              <Label text="Discount">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField />
-                              <RadioButton mnemonicParsing="false" text="\%" />
-                              <RadioButton mnemonicParsing="false" text="Amt" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="43.0" prefWidth="342.0" spacing="25.0">
-                           <children>
-                              <Label text="Total">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Label">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="146.0" layoutY="91.0" prefHeight="177.0" prefWidth="642.0">
-         <children>
-            <Pane layoutX="312.0" layoutY="11.0" prefHeight="135.0" prefWidth="295.0" style="-fx-border-color: #fff;">
-               <children>
-                  <VBox layoutX="-2.0" layoutY="-3.0" prefHeight="115.0" prefWidth="289.0" spacing="10.0">
-                     <children>
-                        <HBox prefHeight="24.0" prefWidth="289.0" spacing="10.0">
-                           <children>
-                              <Label text="Customer ID">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField prefHeight="25.0" prefWidth="144.0" />
-                              <JFXButton prefHeight="25.0" prefWidth="28.0" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="24.0" prefWidth="289.0" spacing="10.0">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="78.0" text="Name">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="20.0" prefWidth="172.0" text="Label">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="24.0" prefWidth="289.0" spacing="10.0">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="79.0" text="Address">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="20.0" prefWidth="172.0" text="Label">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="24.0" prefWidth="289.0" spacing="10.0">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="80.0" text="Contact">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="20.0" prefWidth="168.0" text="Label">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
-                     <padding>
-                        <Insets left="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-               </children>
-            </Pane>
-            <Pane layoutX="12.0" layoutY="12.0" prefHeight="72.0" prefWidth="243.0" style="-fx-border-color: #fff;">
+            <Pane layoutX="43.0" layoutY="16.0" prefHeight="72.0" prefWidth="243.0" style="-fx-border-color: #6ccccc;">
                <children>
                   <Label layoutX="15.0" layoutY="5.0" text="Invoice No:">
                      <font>
@@ -261,20 +34,142 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="152.0" layoutY="7.0" text="012345">
+                  <Label fx:id="invoiceNoLabel" layoutX="152.0" layoutY="7.0" text="012345">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="151.0" layoutY="42.0" text="6/2/2018">
+                  <Label fx:id="invoiceDateLabel" layoutX="151.0" layoutY="42.0" text="6/2/2018">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
+            <VBox layoutX="824.0" layoutY="56.0" prefHeight="240.0" prefWidth="421.0" style="-fx-border-color: #6ccccc;" AnchorPane.bottomAnchor="291.0" AnchorPane.leftAnchor="824.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="56.0">
+               <children>
+                  <HBox prefHeight="43.0" prefWidth="342.0" spacing="15.0">
+                     <children>
+                        <Label text="BarCode">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="barcode" onAction="#barcode_action" prefHeight="25.0" prefWidth="105.0" />
+                        <ComboBox fx:id="combo_batch" onAction="#batch_combo" prefHeight="25.0" prefWidth="187.0" promptText="Batch no with expiry date" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="40.0" prefWidth="130.0" spacing="25.0">
+                     <children>
+                        <Label text="Name">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="iName" text="Label">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="43.0" prefWidth="342.0" spacing="20.0">
+                     <children>
+                        <Label text="Price">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="iPrice" text="Label">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Qty">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="quantity" onAction="#quantity" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="43.0" prefWidth="342.0" spacing="20.0">
+                     <children>
+                        <Label text="Sub Total:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="subTotal" prefHeight="20.0" prefWidth="85.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="62.0" text="Submit" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+            <TableView fx:id="billTable" layoutX="22.0" layoutY="113.0" prefHeight="356.0" prefWidth="770.0" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="113.0">
+               <columns>
+                  <TableColumn fx:id="billSN" prefWidth="51.66668701171875" text="S.No" />
+                  <TableColumn fx:id="billPid" prefWidth="58.999969482421875" text="P.Id" />
+                  <TableColumn fx:id="billName" prefWidth="269.18890380859375" text="Name" />
+                  <TableColumn fx:id="billQuantity" prefWidth="88.87255859375" text="Qty" />
+                  <TableColumn fx:id="billRate" prefWidth="95.137939453125" text="Rate" />
+                  <TableColumn fx:id="billAmount" prefWidth="81.16357421875" text="Amount" />
+                  <TableColumn fx:id="billexp" prefWidth="121.0" text="Exp Date" />
+               </columns>
+            </TableView>
+            <Button layoutX="61.0" layoutY="507.0" mnemonicParsing="false" onAction="#remove_row" prefHeight="25.0" prefWidth="104.0" text="Remove" />
+            <AnchorPane layoutX="887.0" layoutY="344.0" prefHeight="200.0" prefWidth="233.0" style="-fx-border-color: #6ccccc; -fx-background-color: #ececec;">
+               <children>
+                  <Label layoutX="12.0" layoutY="16.0" prefHeight="25.0" prefWidth="56.0" text="Total:" />
+                  <Label fx:id="total" layoutX="67.0" layoutY="13.0" prefHeight="25.0" prefWidth="149.0" />
+                  <Label layoutX="12.0" layoutY="47.0" prefHeight="25.0" prefWidth="80.0" text="Discount %:" />
+                  <TextField fx:id="discount" layoutX="97.0" layoutY="38.0" onAction="#discount" text="0" />
+                  <Label layoutX="11.0" layoutY="81.0" prefHeight="25.0" prefWidth="56.0" text="final:" />
+                  <Label fx:id="final_amount" layoutX="96.0" layoutY="75.0" prefHeight="25.0" prefWidth="149.0" text="Final amount" />
+                  <Button layoutX="75.0" layoutY="124.0" mnemonicParsing="false" onAction="#print" prefHeight="40.0" prefWidth="149.0" text="Print Bill">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="1.0" prefHeight="76.0" prefWidth="1233.0" style="-fx-background-color: #ececec;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="78.0" prefWidth="1265.0" style="-fx-background-color: #fff; -fx-border-color: #6ccccc; -fx-border-width: 0.4em;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="704.0" layoutY="-12.0" prefHeight="82.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="69.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/usericon.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="cashierNameLabel" layoutX="85.0" layoutY="12.0" text="Name" />
+                  <JFXButton layoutX="79.0" layoutY="36.0" onAction="#logoutBtnPushed" style="-fx-background-color: #EC644B;" text="Logout" />
+               </children>
+            </Pane>
+            <JFXButton layoutX="94.0" layoutY="8.0" prefHeight="60.0" prefWidth="85.0" style="-fx-background-color: #6ccccc;" text="Sale">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+            <Pane layoutX="5.0" layoutY="12.0" prefHeight="70.0" prefWidth="84.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="12.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/menu-icon%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
